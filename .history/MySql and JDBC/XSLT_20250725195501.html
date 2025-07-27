@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>XSLT Demo – All Elements Explained</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 70%;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+    th {
+      background-color: gray;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Student Records - Transformed with XSLT</h1>
+<div id="output"></div>
+
+<script>
+// Define XML content
+const xmlString = `
+<Student>
+  <Person-Details>
+    <name>Anand</name>
+    <address>Pune</address>
+    <std>Second</std>
+    <marks>70</marks>
+  </Person-Details>
+  <Person-Details>
+    <name>Anuradha</name>
+    <address>Chennai</address>
+    <std>Second</std>
+    <marks>90</marks>
+  </Person-Details>
+  <Person-Details>
+    <name>Archana</name>
+    <address>Mumbai</address>
+    <std>Fourth</std>
+    <marks>80</marks>
+  </Person-Details>
+  <Person-Details>
+    <name>Monika</name>
+    <address>Delhi</address>
+    <std>Tenth</std>
+    <marks>77</marks>
+  </Person-Details>
+</Student>`;
+
+// Define XSL content using all important elements
+const xslString = `
+<xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- Root template -->
+  <xsl:template match="/">
+    <html>
+      <body>
+        <h2>Students Database</h2>
+        <table border="1">
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Standard</th>
+            <th>Marks</th>
+            <th>Status</th>
+          </tr>
+
+          <!-- for-each to loop through students -->
+          <xsl:for-each select="Student/Person-Details">
+            
+            <!-- Sort by marks -->
+            <xsl:sort select="marks" data-type="number" order="descending"/>
+
+            <!-- Condition using xsl:if -->
+            <xsl:if test="marks &gt; 75">
+              <tr style="background-color: #e6f7ff;">
+                <!-- value-of to display individual values -->
+                <td><xsl:value-of select="name"/></td>
+                <td><xsl:value-of select="address"/></td>
+                <td><xsl:value-of select="std"/></td>
+                <td><xsl:value-of select="marks"/></td>
+
+                <!-- choose-when-otherwise for conditional color -->
+                <xsl:choose>
+                  <xsl:when test="marks &gt;= 90">
+                    <td style="background-color: lightgreen;">Excellent</td>
+                  </xsl:when>
+                  <xsl:when test="marks &gt;= 80">
+                    <td style="background-color: lightyellow;">Very Good</td>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <td style="background-color: lightpink;">Good</td>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </tr>
+            </xsl:if>
+
+          </xsl:for-each>
+        </table>
+      </body>
+    </html>
+  </xsl:template>
+</xsl:stylesheet>`;
+
+// Parse XML and XSL
+const parser = new DOMParser();
+const xml = parser.parseFromString(xmlString, "application/xml");
+const xsl = parser.parseFromString(xslString, "application/xml");
+
+// Transform
+if (window.XSLTProcessor) {
+  const xsltProcessor = new XSLTProcessor();
+  xsltProcessor.importStylesheet(xsl);
+  const result = xsltProcessor.transformToFragment(xml, document);
+  document.getElementById("output").appendChild(result);
+} else {
+  document.getElementById("output").innerHTML = "XSLTProcessor not supported in this browser.";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.3//EN"
+"http://www.wapforum.org/DTD/wml13.dtd">
+<wml>
+  <template>
+    <!-- 
+      The onenterbackward event in a template means that whenever 
+      any card in this WML deck is entered by a 'backward' navigation 
+      (e.g., using <prev/>), this action will be triggered.
+      
+      Here, it's set to go to '#card1'. If you intend for users to 
+      be able to navigate back to specific previous cards, you might
+      want to remove this template-level onenterbackward or make it
+      card-specific. For now, it will always redirect to card1 on backward navigation.
+    -->
+    <onevent type="onenterbackward">
+      <go href="#card1"/>
+    </onevent>
+  </template>
+
+  <!-- 
+    Card 2 is defined first. When this WML deck loads, card2 will be 
+    the initial card displayed if no specific card is targeted in the URL.
+  -->
+  <card id="card2" title="Welcome Card">
+    <p>
+      <!-- 
+        The text for the anchor must be placed between the <anchor> tags.
+        The <prev/> action will navigate to the previously visited card.
+      -->
+      <anchor>
+        Go Back to Previous Card
+        <prev/>
+      </anchor>
+    </p>
+    <p>
+      <!-- Link to navigate to card1 -->
+      <anchor>
+        Go to Card 1
+        <go href="#card1"/>
+      </anchor>
+    </p>
+  </card>
+
+  <!-- Card 1 -->
+  <card id="card1" title="Hello Card">
+    <p>
+      Hello friends!!! How are you
+    </p>
+    <p>
+      <!-- Link to navigate back to card2 (or previous card in history) -->
+      <anchor>
+        Go Back to Card 2
+        <go href="#card2"/>
+      </anchor>
+    </p>
+  </card>
+</wml>

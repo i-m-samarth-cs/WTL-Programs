@@ -1,0 +1,51 @@
+<!DOCTYPE html> 
+<html> 
+    <head>
+        <title>AngularJS Table Example</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<style> 
+table,tr,td { 
+border:2px solid; 
+padding: 5px;  
+Table with border of 2px and 
+padding of 5 px 
+} 
+table tr:nth-child(odd) { 
+background-color:blue; 
+} 
+table tr:nth-child(even) { 
+background-color:yellow;  
+} 
+Setting the style: odd rows are having 
+background color blue 
+Setting the style: even rows are having 
+background color yellow 
+</style> 
+</head>
+<body> 
+<div ng-app="MyApp" ng-controller="MyController"> 
+<h3>Student Data</h3> 
+<table border="1"> 
+ <tr> 
+ <th>Name</th><th>City</th> 
+ </tr> 
+ <tr ng-repeat="p in personinfo"> 
+  <td>{{p.name}}</td> 
+  <td>{{p.city}}</td> 
+ </tr> 
+</table> 
+</div> 
+<script> 
+angular.module('MyApp', []).controller('MyController', function($scope) { 
+    $scope.personinfo = [ 
+  {name:'AAA',city:'Pune'}, 
+  {name:'BBB',city:'Banglore'}, 
+  {name:'CCC',city:'Chennai'}, 
+  {name:'DDD',city:'Delhi'}, 
+  {name:'EEE',city:'Mumbai'}, 
+  ]; 
+  
+}); 
+</script> 
+</body> 
+</html> 

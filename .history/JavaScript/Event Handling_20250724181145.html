@@ -1,0 +1,47 @@
+<html> 
+<head> 
+  <title> Drag and Drop Demo</title> 
+  <script type = "text/javascript">  
+    var X_offset, Y_offset, Item; 
+    function Catch_function(e)  
+    { 
+        Item = e.currentTarget; 
+        var posX = parseInt(Item.style.left); 
+        var posY = parseInt(Item.style.top); 
+        X_offset = e.clientX - posX; 
+        Y_offset = e.clientY - posY; 
+        document.addEventListener("mousemove", Move_function, true); 
+        document.addEventListener("mouseup", Drop_function, true); 
+        e.stopPropagation(); 
+        e.preventDefault(); 
+Registering the mouse event with 
+the help of addEventListener 
+function. 
+    } 
+    function Move_function(e)  
+    { 
+        Item.style.left = (e.clientX - X_offset) + "px"; 
+        Item.style.top = (e.clientY - Y_offset) + "px"; 
+        e.stopPropagation(); 
+    } 
+    function Drop_function(e)  
+    { 
+        document.removeEventListener("mouseup", Drop_function, true); 
+        document.removeEventListener("mousemove", Move_function, true); 
+        e.stopPropagation(); 
+    } 
+  </script> 
+  </head> 
+<body> 
+  <h3> 
+    Click on image below-drag it, move it and then drop anywhere!!!  
+    <br /><br /> 
+    <img src="lamp1.jpg"  
+     style = "position: absolute; 
+     top: 100px; 
+     left: 100px; 
+     border:2px solid;" 
+     onmousedown = "Catch_function(event);" /> 
+  </h3> 
+</body> 
+</html>

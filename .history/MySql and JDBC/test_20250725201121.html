@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html> 
+<body> 
+<button type="button" onclick="loadXMLDoc()">Display Stationary Items</button> 
+<br><br> 
+<table id="demo" border="1"></table> 
+<script> 
+function loadXMLDoc()  
+{ 
+  if(window.XMLHttpRequest) 
+  { 
+ xmlhttp = new XMLHttpRequest(); 
+  } 
+   else 
+{ 
+ xmlhttp = new ActiveXObject("Microsoft.req");//to execute on Inter. Explorer 
+  }   
+  xmlhttp.onreadystatechange = function()  
+  { 
+   if (this.readyState == 4 && this.status == 200) { 
+  myFunction(this); 
+ } 
+ }; 
+    xmlhttp.open("GET","stationary.xml",true); 
+ xmlhttp.send(); 
+} 
+function myFunction(xml)  
+{ 
+  var i; 
+  var xmlDoc = xml.responseXML; 
+   var table="<tr><th>Item</th><th>Price(Rs.)</th></tr>"; 
+  var x = xmlDoc.getElementsByTagName("STATIONARY");  
+  for (i = 0; i <x.length; i++)  
+   {  
+ table += "<tr><td>" + 
+ x[i].getElementsByTagName("ITEM")[0].childNodes[0].nodeValue +"</td><td>" + 
+ x[i].getElementsByTagName("PRICE")[0].childNodes[0].nodeValue + 
+ "</td></tr>"; 
+  } 
+  document.getElementById("demo").innerHTML = table; 
+} 
+</script> 
+</body> 
+</html>

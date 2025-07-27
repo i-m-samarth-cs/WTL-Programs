@@ -1,0 +1,26 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script>
+    $(document).ready(function(){ 
+    $("#button1").click(function(){ 
+        $("ol").before("<b>Element:Before</b>"); 
+    }); 
+    $("#button2").click(function(){ 
+        $("ol").after("<b>Element: After</b>"); 
+    }); 
+}); 
+</script> 
+</head> 
+<body> 
+<ol> 
+  <li>item#1</li> 
+  <li>item#2</li> 
+  <li>item#3</li> 
+</ol> 
+<br/><br/> 
+<button id="button1">Insert before</button> 
+<button id="button2">Insert after</button> 
+</body> 
+</html>

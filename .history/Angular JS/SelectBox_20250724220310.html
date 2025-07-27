@@ -1,0 +1,25 @@
+<!DOCTYPE html>   
+<html>   
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>   
+<body ng-app="">   
+ <form>   
+  Select the color:<br/> 
+  <select ng-model="color"> 
+   <option value="r">Red <br/>  
+   <option value="g">Green <br/> 
+   <option value="b">Blue  <br/>   
+  </select> 
+ </form>   
+   <div ng-switch="color"> 
+ <div ng-switch-when="r"> 
+  <p> You have chosen Red Color </p> 
+ </div> 
+ <div ng-switch-when="g"> 
+  <p> You have chosen Green Color </p> 
+ </div> 
+ <div ng-switch-when="b"> 
+  <p> You have chosen Blue Color </p> 
+ </div> 
+ </div> 
+</body>   
+</html>  

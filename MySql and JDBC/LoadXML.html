@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modern DOM XML Example</title>
+</head>
+<body>
+    <h1>Loading XML File</h1>
+    <div id="xmlContent">
+        <p>Loading Patient.xml...</p>
+    </div>
+
+    <script type="text/javascript">
+        // Function to display messages or errors
+        function displayMessage(message, isError = false) {
+            const xmlContentDiv = document.getElementById('xmlContent');
+            if (isError) {
+                xmlContentDiv.innerHTML = `<p style="color: red;">Error: ${message}</p>`;
+                console.error("XML Loading Error:", message);
+            } else {
+                xmlContentDiv.innerHTML = `<p>${message}</p>`;
+            }
+        }
+
+        // The correct way to load an XML file using Fetch API
+        fetch('Patient.xml')
+            .then(response => {
+                if (!response.ok) {
+                    // Check if the HTTP status is not 2xx
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.text(); // Get the response as plain text
+            })
+            .then(xmlText => {
+                // Parse the XML text into an XML Document object
+                const parser = new DOMParser();
+                const xmlDocument = parser.parseFromString(xmlText, "text/xml");
+
+                // Check for parsing errors
+                const errorNode = xmlDocument.querySelector('parsererror');
+                if (errorNode) {
+                    throw new Error(`Error parsing XML: ${errorNode.textContent}`);
+                }
+
+                // --- XML Document is now loaded and parsed! ---
+                displayMessage("XML Document Patient.xml is loaded and parsed successfully!");
+
+                // You can now work with xmlDocument, e.g., display its content:
+                // Example: Get the root element name
+                const rootElementName = xmlDocument.documentElement.nodeName;
+                displayMessage(`XML Document Patient.xml is loaded and parsed successfully! Root element: ${rootElementName}`);
+
+                // Example: Access data (assuming Patient.xml has a structure)
+                // If Patient.xml looks like: <Patient><Name>John Doe</Name><Age>30</Age></Patient>
+                const patientNameElement = xmlDocument.querySelector('Name');
+                if (patientNameElement) {
+                    const patientName = patientNameElement.textContent;
+                    displayMessage(`XML Document Patient.xml is loaded and parsed successfully! Patient Name: ${patientName}`);
+                }
+
+
+            })
+            .catch(error => {
+                displayMessage(`Failed to load or parse XML: ${error.message}. Make sure 'Patient.xml' exists and is served from a web server.`, true);
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ELEMENTS>
+    <STATIONARY>
+        <ITEM>Notebook</ITEM>
+        <PRICE>40</PRICE>
+    </STATIONARY>
+    <STATIONARY>
+        <ITEM>Punching Machine</ITEM>
+        <PRICE>60</PRICE>
+    </STATIONARY>
+    <STATIONARY>
+        <ITEM>Pencil Box</ITEM>
+        <PRICE>40</PRICE>
+    </STATIONARY>
+    <STATIONARY>
+        <ITEM>Eraser</ITEM>
+        <PRICE>5</PRICE>
+    </STATIONARY>
+</ELEMENTS>

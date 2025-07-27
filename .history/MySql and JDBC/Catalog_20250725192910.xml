@@ -1,0 +1,49 @@
+<?xml version="1.0"?> 
+<!DOCTYPE student SYSTEM "student.dtd"> 
+
+<!ELEMENT Catalog (MotorBike)*> 
+<!ELEMENT MotorBike (make, model, year, color, engine, chasis-num, accessories)> 
+<!ELEMENT make (#PCDATA)> 
+<!ELEMENT model (#PCDATA)> 
+<!ELEMENT year (#PCDATA)> 
+<!ELEMENT color (#PCDATA)> 
+<!ELEMENT engine (engin-num, cylinders-num, fuel-type)> 
+<!ELEMENT engin-num (#PCDATA)>
+<!ELEMENT cylinders-num (#PCDATA)>
+<!ELEMENT fuel-type (#PCDATA)>
+<!ELEMENT chasis-num (#PCDATA)> 
+<!ELEMENT accessories (#PCDATA)> 
+<!ATTLIST accessories 
+    disc-brake (yes|no) #REQUIRED  
+    auto-start (yes|no) #REQUIRED 
+    radio (yes|no) #REQUIRED
+> 
+
+<Catalog>
+    <MotorBike>
+        <make>Honda</make>
+        <model>CBR500R</model>
+        <year>2022</year>
+        <color>Red</color>
+        <engine>
+            <engin-num>ENG12345</engin-num>
+            <cylinders-num>2</cylinders-num>
+            <fuel-type>Petrol</fuel-type>
+        </engine>
+        <chasis-num>CHS67890</chasis-num>
+        <accessories disc-brake="yes" auto-start="yes" radio="no">Standard Kit</accessories>
+    </MotorBike>
+    <MotorBike>
+        <make>Yamaha</make>
+        <model>MT-07</model>
+        <year>2021</year>
+        <color>Blue</color>
+        <engine>
+            <engin-num>ENG54321</engin-num>
+            <cylinders-num>2</cylinders-num>
+            <fuel-type>Petrol</fuel-type>
+        </engine>
+        <chasis-num>CHS09876</chasis-num>
+        <accessories disc-brake="yes" auto-start="no" radio="no">Touring Kit</accessories>
+    </MotorBike>
+</Catalog>

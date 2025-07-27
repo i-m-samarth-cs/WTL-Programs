@@ -1,0 +1,20 @@
+<?xml version="1.0"?> 
+<!DOCTYPE student SYSTEM "student.dtd"> 
+
+<student> 
+ <name>Anand</name> 
+ <address>Pune</address> 
+ <std>Second</std> 
+ <marks>70 percent</marks>
+<!ELEMENT Catalog (MotorBike)*> 
+<!ELEMENT MotorBike (make, model, year,color, engine,chasis-num,accessories ) > 
+<!ELEMENT make (#PCDATA)> 
+<!ELEMENT model (#PCDATA)> 
+<!ELEMENT year (#PCDATA)> 
+<!ELEMENT color (#PCDATA)> 
+<!ELEMENT engine (engin-num,cylinders-num,fuel-type)> 
+<!ELEMENT chasis-num (#PCDATA)> 
+<!ELEMENT accessories (#PCDATA)> 
+<!ATTLIST accessories disc-brake (yes|no) #REQUIRED  
+            auto-start (yes|no) #REQUIRED 
+            radio (yes|no) #REQUIRED> 

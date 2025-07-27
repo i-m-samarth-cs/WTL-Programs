@@ -1,0 +1,18 @@
+<!Doctype html> 
+<html> 
+<head> 
+<script type="text/javascript">   
+function display() 
+{   
+ var name=document.getElementsByName("user");  
+alert("Welcome "+name[0].value); 
+}   
+</script>   
+</head> 
+<body> 
+<form>   
+Enter Name:<input type="text" name="user" /><br/> <br/>   
+<input type="button" value="Greet" onclick="display()"/>   
+</form> 
+</body> 
+</html> 

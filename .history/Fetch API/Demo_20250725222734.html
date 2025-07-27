@@ -1,0 +1,22 @@
+<html>  
+<head>
+    <title>Fetch API XML Loading Example</title>
+    <script>
+        //let p = fetch('')
+        //p.then(response => response.text())
+        //.then(data => console.log(data));
+        let p = fetch('https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m');
+        p.then((response) {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json(); // Get the response as JSON
+        })
+        .then(value)
+    </script>
+</head>
+<body>  
+    <h1>Fetch API XML Loading Example</h1>
+    <p>This example demonstrates how to load an XML file using the Fetch API.</p>
+    <div id="output"></div>
+</html>

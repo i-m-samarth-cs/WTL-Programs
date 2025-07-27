@@ -1,0 +1,23 @@
+<!DOCTYPE html>   
+<html>   
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>   
+<body>     
+<div ng-app="MyApp" ng-controller="MyController">   
+  User: <input type="text" ng-model="user"><br/><br/>   
+  City: <input type="text" ng-model="city"><br/>   
+  <br/>   
+  Address: {{address_function()}}   
+ </div>   
+ <script>   
+var app = angular.module('MyApp', []);   
+app.controller('MyController', function($scope) {   
+    $scope.user = "AAA";   
+    $scope.city = "Pune";   
+    $scope.address_function=function() {         
+ 
+return $scope.user +" lives in city "+$scope.city; 
+   };  
+});   
+</script>   
+</body>   
+</html>

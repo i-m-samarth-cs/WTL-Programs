@@ -1,0 +1,121 @@
+<html> 
+<head> 
+<title>The Student Registration Form</title> 
+<script type=text/javascript> 
+function validate() 
+{ 
+var i; 
+var name_str=document.my_form.name; 
+var phoneID=document.my_form.ph_txt; 
+var ph_str=document.my_form.ph_txt.value; 
+var str=document.my_form.Email_txt.value; 
+if((name_str.value==null)||(name_str.value=="")) 
+{ 
+alert("Enter some name") 
+return false ;
+} 
+           if(document.my_form.Age_txt.value=="")// validating age 
+{ 
+alert("Enter Some Age") 
+return false 
+} 
+if((document.my_form.Age_txt.value<"5")&&(document.my_form.Age_txt.value>"21"))
+{ 
+alert("Invalid Age") 
+return false 
+} 
+if(ph_str.length<1 ||ph_str.length>11) 
+{ 
+alert("Invalid length of Phone Number") 
+return false 
+} 
+for (i = 0; i < ph_str.length; i++) 
+{    
+var ch = ph_str.charAt(i); 
+if (((ch < "0") || (ch > "9"))){ 
+alert("Invalid Phone Number") 
+phoneID.focus() 
+ return false 
+} 
+} 
+var index_at=str.indexOf("@") 
+var len=str.length 
+var index_dot=str.indexOf(".") 
+var emailID=document.my_form.Email_txt 
+if ((emailID.value==null)||(emailID.value=="")) 
+{ 
+alert("Please Enter your Email ID") 
+emailID.focus() 
+return false 
+} 
+if (str.indexOf("@")==-1) 
+{ 
+   alert("Invalid E-mail ID") 
+   return false 
+} 
+           if (str.indexOf(".")==-1 || str.indexOf(".")==0   
+      || str.indexOf(".")==index_at) 
+{ 
+    alert("Invalid E-mail ID") 
+    return false 
+} 
+
+ if (str.indexOf("@",(index_at+1))!=-1) 
+{ 
+    alert("Invalid E-mail ID") 
+    return false 
+} 
+ if (str.indexOf(" ")!=-1) 
+  
+ { 
+      alert("Invalid E-mail ID") 
+      return false 
+   } 
+ if (!document.my_form.group1[0].checked && !document.my_form.group1[0].checked) 
+  { 
+   alert("Please Select Sex"); 
+   return false; 
+  } 
+ if (!document.my_form.group1[0].checked && !document.my_form.group1[0].checked) 
+  { 
+   alert("Please Select Sex"); 
+   return false; 
+  } 
+   return true      
+ 
+} 
+</script> 
+</head> 
+<body bgcolor=aqua> 
+<center><h3>Application Form</h3></center> 
+<form name=my_form onsubmit=validate()> 
+<strong>Name: </strong> 
+<input type=text name=name><br/> 
+ 
+<strong>Age: </strong> 
+<input type=text name=Age_txt><br/> 
+ 
+<strong>Phone No:</strong> 
+<input type=text name=ph_txt><br/> 
+<strong>Email: </strong> 
+<input type=text name=Email_txt><br/><br/> 
+<strong>Sex:  </strong> 
+<input type="radio" name="group1" value="Male">Male  
+<input type="radio" name="group1" value="Female">Female<br/><br/><br/> 
+<strong>Hoby: </strong> 
+<input type="checkbox" name ="option1" value="Singing">Singing<br/> 
+<input type="checkbox" name ="option1" value="Reading">Reading<br/> 
+<input type="checkbox" name ="option1" value="T.V.">Watching T.V<br/> 
+<br/><br/> 
+<strong>Country:</strong> 
+<select name="My_Menu">
+    <option value="India">India</option> 
+<option value="China">China</option> 
+<option value="Shrilanka">Shrilanka</option> 
+</select> 
+<center> 
+<input type=submit value=Submit></br> 
+</center> 
+ 
+</body> 
+</html>

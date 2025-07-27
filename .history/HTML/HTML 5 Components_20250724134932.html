@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Concepts Demonstration</title>
+    <!-- Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for better presentation */
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: #f0f4f8; /* Light blue-gray background */
+            color: #334155; /* Darker text color */
+        }
+        .container {
+            max-width: 960px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            border-radius: 12px; /* Rounded corners for the main container */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+        }
+        section, article {
+            background-color: #f8fafc; /* Lighter background for sections */
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e2e8f0; /* Light border */
+        }
+        h2 {
+            color: #1e293b; /* Darker heading color */
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #cbd5e1; /* Underline for headings */
+            padding-bottom: 0.5rem;
+        }
+        canvas {
+            border: 2px solid #3b82f6; /* Blue border for canvas */
+            background-color: #e0f2fe; /* Light blue background for canvas */
+            border-radius: 8px;
+            display: block; /* Ensure canvas takes full width */
+            width: 100%; /* Make canvas responsive */
+            height: 200px; /* Fixed height for demonstration */
+        }
+        svg {
+            border: 2px solid #10b981; /* Green border for SVG */
+            background-color: #ecfdf5; /* Light green background for SVG */
+            border-radius: 8px;
+            display: block; /* Ensure SVG takes full width */
+            width: 100%; /* Make SVG responsive */
+            height: 200px; /* Fixed height for demonstration */
+        }
+        audio, video {
+            width: 100%; /* Make media players responsive */
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        form div {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        input[type="number"],
+        input[type="date"],
+        input[type="time"],
+        input[type="range"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            box-sizing: border-box; /* Include padding in width */
+        }
+        input[type="range"] {
+            -webkit-appearance: none; /* Remove default styling */
+            appearance: none;
+            height: 8px;
+            background: #e2e8f0;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity .2s;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3b82f6;
+            cursor: pointer;
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #3b82f6;
+            cursor: pointer;
+        }
+        button {
+            background-color: #3b82f6; /* Blue button */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2563eb; /* Darker blue on hover */
+        }
+        .message-box {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            display: none; /* Hidden by default */
+            text-align: center;
+        }
+        .message-box button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 1. The simplified HTML5 Doctype -->
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">HTML5 Concepts Showcase</h1>
+            <p class="text-gray-600">Exploring modern web features with a simplified doctype.</p>
+        </header>
+
+        <!-- 2. New graphic elements: <canvas> and <svg> -->
+        <section>
+            <h2 class="text-2xl font-semibold">Graphics: Canvas & SVG</h2>
+            <p class="mb-4">HTML5 introduces powerful elements for drawing graphics directly in the browser.</p>
+
+            <article class="mb-6">
+                <h3 class="text-xl font-medium mb-2">Canvas Element</h3>
+                <p class="mb-2">The <code>&lt;canvas&gt;</code> element is used to draw graphics on the fly via JavaScript.</p>
+                <canvas id="myCanvas" width="400" height="200"></canvas>
+                <p class="text-sm text-gray-500 mt-2">A simple rectangle drawn using JavaScript on the canvas.</p>
+            </article>
+
+            <article>
+                <h3 class="text-xl font-medium mb-2">SVG Element</h3>
+                <p class="mb-2">The <code>&lt;svg&gt;</code> element is used to define scalable vector graphics.</p>
+                <svg width="400" height="200">
+                    <circle cx="100" cy="100" r="80" stroke="#ef4444" stroke-width="4" fill="#fecaca" />
+                    <rect x="250" y="50" width="100" height="100" stroke="#22c55e" stroke-width="4" fill="#dcfce7" />
+                </svg>
+                <p class="text-sm text-gray-500 mt-2">A circle and a rectangle rendered using SVG.</p>
+            </article>
+        </section>
+
+        <!-- 3. Support for multimedia elements: <audio> and <video> -->
+        <section>
+            <h2 class="text-2xl font-semibold">Multimedia: Audio & Video</h2>
+            <p class="mb-4">Embed audio and video directly without third-party plugins.</p>
+
+            <article class="mb-6">
+                <h3 class="text-xl font-medium mb-2">Audio Element</h3>
+                <p class="mb-2">The <code>&lt;audio&gt;</code> element for embedding sound content.</p>
+                <!-- Using a placeholder audio file. In a real application, you'd link to your own audio. -->
+                <audio controls>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <p class="text-sm text-gray-500 mt-2">Example audio player (placeholder MP3 from SoundHelix).</p>
+            </article>
+
+            <article>
+                <h3 class="text-xl font-medium mb-2">Video Element</h3>
+                <p class="mb-2">The <code>&lt;video&gt;</code> element for embedding video content.</p>
+                <!-- Using a placeholder video file. In a real application, you'd link to your own video. -->
+                <video controls poster="https://placehold.co/640x360/E0F2FE/3B82F6?text=Video+Placeholder">
+                    <source src="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" type="video/mp4">
+                    Your browser does not support the video element.
+                </video>
+                <p class="text-sm text-gray-500 mt-2">Example video player (placeholder MP4 from learningcontainer.com).</p>
+            </article>
+        </section>
+
+        <!-- 4. Support for <header>, <footer>, <article>, and <section> -->
+        <section>
+            <h2 class="text-2xl font-semibold">Semantic Structure</h2>
+            <p class="mb-4">New semantic elements improve document structure and accessibility.</p>
+
+            <header class="bg-blue-100 p-4 rounded-lg mb-4 text-center">
+                <h3 class="text-xl font-medium text-blue-800">Page Header Example</h3>
+                <p class="text-blue-700">This is the main header of the document.</p>
+            </header>
+
+            <section class="mb-6">
+                <h3 class="text-xl font-medium mb-2">Section Example</h3>
+                <p class="mb-2">This is a generic standalone section of the document.</p>
+                <article>
+                    <h4 class="text-lg font-medium mb-1">Article within a Section</h4>
+                    <p class="text-gray-700">An article represents self-contained content, like a blog post or a news story, that could be distributed independently.</p>
+                </article>
+            </section>
+
+            <footer class="bg-gray-200 p-4 rounded-lg text-center">
+                <p class="text-gray-700">&copy; 2025 HTML5 Concepts Demo</p>
+            </footer>
+        </section>
+
+        <!-- 5. Support for new form controls -->
+        <section>
+            <h2 class="text-2xl font-semibold">New Form Controls</h2>
+            <p class="mb-4">HTML5 introduces specialized input types for better user experience and data validation.</p>
+
+            <form class="space-y-4">
+                <div>
+                    <label for="quantity">Number Input:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" max="100" value="10" class="rounded-md">
+                    <p class="text-sm text-gray-500 mt-1">Allows only numerical input with min/max values.</p>
+                </div>
+
+                <div>
+                    <label for="eventDate">Date Input:</label>
+                    <input type="date" id="eventDate" name="eventDate" class="rounded-md">
+                    <p class="text-sm text-gray-500 mt-1">Provides a date picker interface.</p>
+                </div>
+
+                <div>
+                    <label for="eventTime">Time Input:</label>
+                    <input type="time" id="eventTime" name="eventTime" class="rounded-md">
+                    <p class="text-sm text-gray-500 mt-1">Provides a time picker interface.</p>
+                </div>
+
+                <div>
+                    <label for="appointment">Calendar (DateTime-Local) Input:</label>
+                    <input type="datetime-local" id="appointment" name="appointment" class="rounded-md">
+                    <p class="text-sm text-gray-500 mt-1">Combines date and time into one input (often called calendar).</p>
+                </div>
+
+                <div>
+                    <label for="volume">Range Input (Volume): <span id="volumeValue">50</span></label>
+                    <input type="range" id="volume" name="volume" min="0" max="100" value="50" class="rounded-md">
+                    <p class="text-sm text-gray-500 mt-1">A slider for selecting a numerical value within a range.</p>
+                </div>
+            </form>
+        </section>
+
+        <!-- 6. Rich set of Application Programming Interface (API) for Local Storage -->
+        <section>
+            <h2 class="text-2xl font-semibold">Web APIs: Local Storage</h2>
+            <p class="mb-4">HTML5 provides APIs for client-side data storage, drag and drop, geolocation, and more.</p>
+
+            <article>
+                <h3 class="text-xl font-medium mb-2">Local Storage Example</h3>
+                <p class="mb-2">Local Storage allows web applications to store data locally within the user's browser with no expiration date.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <input type="text" id="localStorageInput" placeholder="Enter text to save" class="p-2 border border-gray-300 rounded-md flex-grow">
+                    <button id="saveButton" class="px-4 py-2 rounded-md">Save to Local Storage</button>
+                    <button id="loadButton" class="px-4 py-2 rounded-md">Load from Local Storage</button>
+                </div>
+                <p id="localStorageOutput" class="mt-4 p-3 bg-gray-100 border border-gray-200 rounded-md text-gray-700">
+                    Saved data will appear here.
+                </p>
+                <p class="text-sm text-gray-500 mt-2">Type something, click 'Save', then refresh the page and click 'Load' to see it persist.</p>
+            </article>
+        </section>
+
+        <!-- Message Box for alerts -->
+        <div id="messageBox" class="message-box">
+            <p id="messageText"></p>
+            <button onclick="document.getElementById('messageBox').style.display='none'">OK</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Function to display custom message box instead of alert()
+        function showMessageBox(message) {
+            const messageBox = document.getElementById('messageBox');
+            const messageText = document.getElementById('messageText');
+            messageText.textContent = message;
+            messageBox.style.display = 'block';
+        }
+
+        // JavaScript for Canvas drawing
+        window.onload = function() {
+            const canvas = document.getElementById('myCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Draw a rectangle
+            ctx.fillStyle = '#f97316'; // Orange color
+            ctx.fillRect(50, 50, 150, 100); // x, y, width, height
+            ctx.strokeStyle = '#ea580c'; // Darker orange border
+            ctx.lineWidth = 4;
+            ctx.strokeRect(50, 50, 150, 100);
+
+            // Draw some text
+            ctx.font = '24px Arial';
+            ctx.fillStyle = '#1e293b';
+            ctx.fillText('Hello Canvas!', 200, 100);
+
+            // JavaScript for Range input value display
+            const volumeInput = document.getElementById('volume');
+            const volumeValueSpan = document.getElementById('volumeValue');
+            volumeInput.addEventListener('input', function() {
+                volumeValueSpan.textContent = this.value;
+            });
+
+            // JavaScript for Local Storage API demonstration
+            const localStorageInput = document.getElementById('localStorageInput');
+            const saveButton = document.getElementById('saveButton');
+            const loadButton = document.getElementById('loadButton');
+            const localStorageOutput = document.getElementById('localStorageOutput');
+
+            saveButton.addEventListener('click', function() {
+                const textToSave = localStorageInput.value;
+                if (textToSave) {
+                    try {
+                        localStorage.setItem('myHTML5Data', textToSave);
+                        showMessageBox('Data saved to Local Storage!');
+                        localStorageInput.value = ''; // Clear input after saving
+                    } catch (e) {
+                        showMessageBox('Error saving to Local Storage: ' + e);
+                    }
+                } else {
+                    showMessageBox('Please enter some text to save.');
+                }
+            });
+
+            loadButton.addEventListener('click', function() {
+                try {
+                    const savedText = localStorage.getItem('myHTML5Data');
+                    if (savedText) {
+                        localStorageOutput.textContent = 'Loaded: "' + savedText + '"';
+                        showMessageBox('Data loaded from Local Storage!');
+                    } else {
+                        localStorageOutput.textContent = 'No data found in Local Storage.';
+                        showMessageBox('No data found in Local Storage.');
+                    }
+                } catch (e) {
+                    showMessageBox('Error loading from Local Storage: ' + e);
+                }
+            });
+
+            // Initial load check for Local Storage
+            const initialSavedText = localStorage.getItem('myHTML5Data');
+            if (initialSavedText) {
+                localStorageOutput.textContent = 'Previously saved: "' + initialSavedText + '"';
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE Patients [ 
+<!ELEMENT Patients (Patient)*> 
+<!ELEMENT Patient (Name, Address,Test,Date,Doctor,Bill)> 
+<!ELEMENT Name (#PCDATA)> 
+<!ELEMENT Address (#PCDATA)> 
+<!ELEMENT Test (#PCDATA)> 
+<!ELEMENT Date (#PCDATA)> 
+<!ELEMENT Doctor (#PCDATA)> 
+<!ELEMENT Bill (#PCDATA)> 
+]> 
+<Patients> 
+ <Patient> 
+  <Name>Anuradha</Name> 
+  <Address>Pune</Address> 
+  <Test>ECG</Test> 
+  <Date>1-1-2010</Date> 
+  <Doctor>Mr.XYZ</Doctor> 
+  <Bill>Rs.500</Bill> 
+ </Patient> 
+ <Patient> 
+  <Name>Archana</Name> 
+  <Address>Mumbai</Address> 
+  <Test>Blood Test</Test> 
+  <Date>10-3-2010</Date> 
+  <Doctor>Mr.PQR</Doctor> 
+  <Bill>Rs.100</Bill> 
+ </Patient> 
+</Patients>

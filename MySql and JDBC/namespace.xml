@@ -1,0 +1,8 @@
+<File-Description> 
+ <text fname="input.txt"> 
+<describe>It is a text file</describe> 
+ </text> 
+ <text fname="image.png"> 
+<describe>It is an image file</describe> 
+ </text> 
+</File-Description> 

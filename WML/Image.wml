@@ -1,0 +1,11 @@
+<?xml version="1.0"?> 
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.2//EN" 
+"http://www.wapforum.org/DTD/wml12.dtd"> 
+<wml> 
+<card title="Displaying Image"> 
+<p> 
+Good Morning!!! 
+<img src="image.wbmp" alt="flower image" height="400px" width="400px"/> 
+</p> 
+</card> 
+</wml> 

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.2//EN"
+"http://www.wapforum.org/DTD/wml12.dtd">
+<wml>
+<card title="Displaying Tables with Basic Styling">
+<p align="center">
+  <big><b>Styled Table Example</b></big>
+</p>
+<p>
+  <table columns="3" align="LCR">
+    <tr>
+      <td><b align="center">Header 1</b></td>
+      <td><b align="center">Header 2</b></td>
+      <td><b align="center">Header 3</b></td>
+    </tr>
+    <tr>
+      <td>One</td>
+      <td><i align="center">Two</i></td>
+      <td>Three</td>
+    </tr>
+    <tr>
+      <td>Four</td>
+      <td>Five</td>
+      <td><small>Six</small></td>
+    </tr>
+  </table>
+</p>
+<p align="center">
+  <i>End of Table</i>
+</p>
+</card>
+</wml>

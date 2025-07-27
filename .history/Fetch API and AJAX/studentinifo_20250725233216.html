@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <h1>Fetch API XML Loading Example</h1>
+        <p>This example demonstrates how to load an XML file using the Fetch API.</p>
+        <div id="output"></div>
+        <script>
+            let p = fetch('Student.xml');
+            p.then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById("output").innerHTML = data;
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
+        </script>
+        
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html> 
+<html> 
+<body> 
+ 
+<div id="div1"> 
+<p id="p1">First Sentence</p> 
+<p id="p2">Second Sentence</p> 
+</div> 
+ 
+<script> 
+var pnode = document.createElement("p"); 
+var node = document.createTextNode("Newly Added Sentence!!!"); 
+pnode.appendChild(node); 
+var element = document.getElementById("div1"); 
+var nextnode = document.getElementById("p2"); 
+element.insertBefore(pnode,nextnode); 
+</script> 
+ 
+</body> 
+</html> 

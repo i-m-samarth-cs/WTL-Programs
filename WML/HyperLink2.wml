@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.2//EN"
+"http://www.wapforum.org/DTD/wml12.dtd">
+<wml>
+<card title="Displaying Hyperlink">
+<p> This is hyperlink demo </p>
+<p>
+  <!-- Added text inside the anchor to make it clickable -->
+  <anchor>
+    Go to Image Page
+    <go href="Image.wml"/>
+  </anchor>
+</p>
+<p>
+  <!-- Added text inside the anchor to make it clickable -->
+  <anchor>
+    Go Back
+    <prev/>
+  </anchor>
+</p>
+</card>
+</wml>

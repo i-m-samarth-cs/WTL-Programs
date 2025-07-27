@@ -1,0 +1,14 @@
+<?xml version="1.0"?> 
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.2//EN" 
+"http://www.wapforum.org/DTD/wml12.dtd"> 
+<wml> 
+<card title="Displaying List"> 
+<p> Select the color : 
+ <select multiple="true"> 
+  <option value="red">Red</option> 
+  <option value="blue">Blue</option> 
+  <option value="yellow">Yellow</option> 
+ </select> 
+</p> 
+</card> 
+</wml> 

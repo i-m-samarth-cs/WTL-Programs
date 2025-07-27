@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.3//EN"
+"http://www.wapforum.org/DTD/wml13.dtd">
+<wml>
+  <card id="card1" title="Timer Demo">
+    <!-- The timer tag should be a direct child of the card or template -->
+    <timer value="5000"/>
+    
+    <!-- The onevent type="ontimer" defines the action to take when the timer expires -->
+    <onevent type="ontimer">
+      <go href="Image.wml"/> 
+    </onevent> 
+    
+    <p> 
+      WML Timer Test 
+    </p> 
+  </card> 
+</wml>

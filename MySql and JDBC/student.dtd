@@ -1,0 +1,5 @@
+<!ELEMENT student (name,address,std,marks)> 
+<!ELEMENT name (#PCDATA)> 
+<!ELEMENT address (#PCDATA)> 
+<!ELEMENT std (#PCDATA)> 
+<!ELEMENT marks (#PCDATA)> 

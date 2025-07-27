@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Fetch API Example</title>
+        <script>
+            let option ={
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name: 'John Doe', age: 30 })
+            }
+            let p = fetch('https://jsonplaceholder.typicode.com/posts', option);
+            p.then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json(); // Get the response as JSON
+            })
+            .then(data => {
+                console.log(data);
+                document.getElementById("output").innerHTML = JSON.stringify(data, null, 2);
+            });
+        </script>
+    </head>
+</html>

@@ -1,0 +1,26 @@
+<html> 
+<!--Simple DOM example for loading some xml file --> 
+<body> 
+<script type="text/javascript"> 
+try 
+  { 
+  xmlDocument=new ActiveXObject("Microsoft.XMLDOM"); 
+  } 
+catch(e) 
+  { 
+  try 
+    { 
+    xmlDocument=document.implementation.createDocument("","",null); 
+    } 
+  catch(e) {alert(e.message)} 
+  } 
+try  
+  {  
+  xmlDocument.async=false; 
+  xmlDocument.load("Patient.xml"); 
+  document.write("XML Document Patient.xml is loaded"); 
+  } 
+catch(e) {alert(e.message)} 
+</script> 
+</body> 
+</html> 

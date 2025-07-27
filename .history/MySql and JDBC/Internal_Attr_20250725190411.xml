@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE student [ 
+<!ELEMENT student (name,address,std,marks)> 
+<!ELEMENT name (#PCDATA)> 
+<!ELEMENT address (#PCDATA)> 
+<!ELEMENTstd (#PCDATA)> 
+<!ELEMENT marks (#PCDATA)> 
+ <!ATTLIST address phone CDATA #REQUIRED> 
+]> 
+<student> 
+ <name>Anand</name> 
+ <address phone="9898123123">Pune</address> 
+ <std>Tenth</std> 
+ <br /> 
+ <marks>70 percent</marks> 
+</student> 
